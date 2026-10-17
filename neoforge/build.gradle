@@ -41,7 +41,7 @@ dependencies {
     modApi "dev.architectury:architectury-neoforge:${rootProject.architectury_version}"
 
     modImplementation "maven.modrinth:ad-astra:${rootProject.ad_astra_neoforge_version}"
-    implementation "curse.maven:shape-shifter-curse-forge-1683902:9222268"
+    implementation "curse.maven:shape-shifter-curse-forge-1683902:9224549"
     modRuntimeOnly("com.teamresourceful.resourcefullib:resourcefullib-neoforge-1.21:${rootProject.resourceful_lib_version}") { transitive = false }
     modRuntimeOnly("com.teamresourceful.resourcefulconfig:resourcefulconfig-neoforge-1.21:${rootProject.resourceful_config_version}") { transitive = false }
     modRuntimeOnly "maven.modrinth:common-storage-lib:${rootProject.common_storage_lib_neoforge_version}"
