@@ -9,32 +9,37 @@ displayName="${mod_name}"
 authors="${mod_authors}"
 description='''${mod_description}'''
 
-[[dependencies.${mod_id}]]
+[[dependencies."${mod_id}"]]
 modId="neoforge"
 type="required"
-versionRange="[21.1.249,21.2)"
+versionRange="[21.1.259,21.2)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.${mod_id}]]
+[[dependencies."${mod_id}"]]
 modId="minecraft"
 type="required"
 versionRange="[1.21.1,1.21.2)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.${mod_id}]]
+[[dependencies."${mod_id}"]]
 modId="architectury"
 type="required"
 versionRange="[${architectury_version},14)"
 ordering="AFTER"
 side="BOTH"
 
-[[dependencies.${mod_id}]]
+[[dependencies."${mod_id}"]]
 modId="ad_astra"
 type="required"
 versionRange="[1.16.26,1.17)"
 ordering="AFTER"
 side="BOTH"
 
-# SSC is deliberately not required until the native NeoForge dependency is ready.
+[[dependencies."${mod_id}"]]
+modId="shape_shifter_curse"
+type="required"
+versionRange="[1.10.0.0,)"
+ordering="AFTER"
+side="BOTH"

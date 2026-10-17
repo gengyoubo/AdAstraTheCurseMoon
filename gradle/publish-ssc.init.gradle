@@ -1,0 +1,24 @@
+// Publish an existing SSC JAR without rebuilding it or changing the SSC project.
+// Run against the SSC project with -PsscJar=<absolute path> -PsscVersion=<version>.
+gradle.projectsEvaluated {
+    def sscProject = gradle.rootProject
+    def artifactFile = sscProject.file(sscProject.providers.gradleProperty('sscJar').get())
+    def artifactVersion = sscProject.providers.gradleProperty('sscVersion').get()
+    new java.util.zip.ZipFile(artifactFile).withCloseable { jar ->
+        def metadata = jar.getInputStream(jar.getEntry('META-INF/neoforge.mods.toml')).withCloseable {
+            it.getText('UTF-8')
+        }
+        def jarVersionMatcher = metadata =~ /(?m)^version\s*=\s*"([^"]+)"/
+        def jarVersion = jarVersionMatcher.find() ? jarVersionMatcher.group(1) : null
+        if (jarVersion != artifactVersion) {
+            throw new GradleException("sscVersion '${artifactVersion}' must match JAR version '${jarVersion}'")
+        }
+    }
+    def publication = sscProject.publishing.publications.getByName('mavenJava')
+    publication.version = artifactVersion
+    publication.setArtifacts([artifactFile])
+    sscProject.tasks.withType(org.gradle.api.publish.tasks.GenerateModuleMetadata).configureEach {
+        enabled = false
+    }
+    gradle.startParameter.excludedTaskNames += ['jar', 'sourcesJar']
+}
