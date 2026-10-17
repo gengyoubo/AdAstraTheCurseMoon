@@ -1,5 +1,5 @@
 {
-  "type": "ad_astra:moon_orbit",
+  "type": "ad_ssc:curse_moon_orbit",
   "generator": {
     "type": "minecraft:noise",
     "settings": "ad_astra:orbit",

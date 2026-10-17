@@ -11,29 +11,87 @@
   "sunrise_angle": 0,
   "render_in_rain": true,
   "star_colors": [
-    { "data": -1, "weight": 8 },
-    { "data": -3890945, "weight": 2 }
+    {
+      "data": -1,
+      "weight": 8
+    },
+    {
+      "data": -3890945,
+      "weight": 2
+    }
   ],
   "sky_renderables": [
     {
-      "texture": "ad_astra:textures/environment/red_sun.png",
-      "scale": 9.0,
-      "global_rotation": [0.0, 0.0, 0.0],
-      "local_rotation": [0.0, 0.0, 0.0],
-      "movement_type": "TIME_OF_DAY",
-      "blend": false,
-      "back_light_color": -3890945,
-      "back_light_scale": 27.0
-    },
-    {
       "texture": "ad_astra:textures/environment/moon.png",
       "scale": 80.0,
-      "global_rotation": [180.0, 0.0, 0.0],
-      "local_rotation": [0.0, 0.0, 0.0],
+      "global_rotation": [
+        180.0,
+        0.0,
+        0.0
+      ],
+      "local_rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
       "movement_type": "STATIC",
       "blend": false,
       "back_light_color": -3890945,
       "back_light_scale": 240.0
+    },
+    {
+      "texture": "ad_astra:textures/environment/phobos.png",
+      "scale": 4.0,
+      "global_rotation": [
+        65.0,
+        0.0,
+        20.0
+      ],
+      "local_rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "movement_type": "STATIC",
+      "blend": false,
+      "back_light_color": -3890945,
+      "back_light_scale": 12.0
+    },
+    {
+      "texture": "ad_astra:textures/environment/deimos.png",
+      "scale": 3.0,
+      "global_rotation": [
+        -55.0,
+        0.0,
+        120.0
+      ],
+      "local_rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "movement_type": "STATIC",
+      "blend": false,
+      "back_light_color": -3890945,
+      "back_light_scale": 9.0
+    },
+    {
+      "texture": "ad_astra:textures/environment/vicinus.png",
+      "scale": 6.0,
+      "global_rotation": [
+        30.0,
+        0.0,
+        -65.0
+      ],
+      "local_rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "movement_type": "STATIC",
+      "blend": false,
+      "back_light_color": -3890945,
+      "back_light_scale": 18.0
     }
   ]
 }
