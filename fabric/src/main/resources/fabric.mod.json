@@ -14,9 +14,9 @@
     "fabricloader": ">=${fabric_loader_version}",
     "fabric-api": "*",
     "minecraft": "${minecraft_version}",
-    "java": ">=17",
+    "java": ">=21",
     "architectury": ">=${architectury_version}",
-    "ad_astra": ">=1.15.21 <1.16",
-    "shape-shifter-curse": ">=1.9.2"
+    "ad_astra": ">=1.16.26 <1.17",
+    "shape-shifter-curse-unofficial": ">=1.10.0.25"
   }
 }

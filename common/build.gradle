@@ -7,5 +7,5 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     modApi "dev.architectury:architectury:${rootProject.architectury_version}"
     // Ad Astra's shared API is identical on both loaders. Never package this dependency.
-    modCompileOnly "curse.maven:ad-astra-635042:${rootProject.ad_astra_fabric_file}"
+    modCompileOnly "maven.modrinth:ad-astra:${rootProject.ad_astra_fabric_version}"
 }

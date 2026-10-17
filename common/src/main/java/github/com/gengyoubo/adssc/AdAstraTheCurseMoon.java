@@ -12,6 +12,6 @@ public final class AdAstraTheCurseMoon {
     }
 
     public static void init() {
-        LOGGER.info("Initializing {} on {}", MOD_ID, Platform.isFabric() ? "Fabric" : "Forge");
+        LOGGER.info("Initializing {} on {}", MOD_ID, Platform.isFabric() ? "Fabric" : "NeoForge");
     }
 }

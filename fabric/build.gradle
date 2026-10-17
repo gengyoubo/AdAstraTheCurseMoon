@@ -1,8 +1,15 @@
-apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'com.gradleup.shadow'
 
 architectury {
     platformSetupLoomIde()
     fabric()
+}
+
+loom {
+    runs {
+        client { runDir '../run/1.21.1/fabric' }
+        server { runDir '../run/1.21.1/fabric' }
+    }
 }
 
 configurations {
@@ -18,13 +25,15 @@ dependencies {
     modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
     modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
 
-    modImplementation "curse.maven:ad-astra-635042:${rootProject.ad_astra_fabric_file}"
-    modImplementation "maven.modrinth:shape-shifter-curse:${rootProject.shape_shifter_curse_fabric_version}"
-    modRuntimeOnly "com.teamresourceful.resourcefullib:resourcefullib-fabric-1.20.1:${rootProject.resourceful_lib_version}"
-    modRuntimeOnly "com.teamresourceful.resourcefulconfig:resourcefulconfig-fabric-1.20.1:${rootProject.resourceful_config_version}"
-    modRuntimeOnly "earth.terrarium.botarium:botarium-fabric-1.20.1:${rootProject.botarium_version}"
+    modImplementation "maven.modrinth:ad-astra:${rootProject.ad_astra_fabric_version}"
+    modImplementation "curse.maven:shape-shifter-curse-unofficial-port-1542487:${rootProject.shape_shifter_curse_fabric_file}"
+    modRuntimeOnly("com.teamresourceful.resourcefullib:resourcefullib-fabric-1.21:${rootProject.resourceful_lib_version}") { transitive = false }
+    modRuntimeOnly("com.teamresourceful.resourcefulconfig:resourcefulconfig-fabric-1.21:${rootProject.resourceful_config_version}") { transitive = false }
+    modRuntimeOnly "maven.modrinth:common-storage-lib:${rootProject.common_storage_lib_fabric_version}"
     modRuntimeOnly "maven.modrinth:pehkui:${rootProject.pehkui_version}"
     modRuntimeOnly "maven.modrinth:satin-api:${rootProject.satin_version}"
+    modRuntimeOnly "maven.modrinth:player-animation-library:${rootProject.player_animation_library_version}"
+    modRuntimeOnly "maven.modrinth:geckolib:${rootProject.geckolib_fabric_version}"
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowCommon(project(path: ':common', configuration: 'transformProductionFabric')) { transitive = false }
