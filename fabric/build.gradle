@@ -1,0 +1,48 @@
+apply plugin: 'com.github.johnrengelman.shadow'
+
+architectury {
+    platformSetupLoomIde()
+    fabric()
+}
+
+configurations {
+    common
+    shadowCommon
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentFabric.extendsFrom common
+}
+
+dependencies {
+    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
+    modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
+
+    modImplementation "curse.maven:ad-astra-635042:${rootProject.ad_astra_fabric_file}"
+    modImplementation "maven.modrinth:shape-shifter-curse:${rootProject.shape_shifter_curse_fabric_version}"
+    modRuntimeOnly "com.teamresourceful.resourcefullib:resourcefullib-fabric-1.20.1:${rootProject.resourceful_lib_version}"
+    modRuntimeOnly "com.teamresourceful.resourcefulconfig:resourcefulconfig-fabric-1.20.1:${rootProject.resourceful_config_version}"
+    modRuntimeOnly "earth.terrarium.botarium:botarium-fabric-1.20.1:${rootProject.botarium_version}"
+    modRuntimeOnly "maven.modrinth:pehkui:${rootProject.pehkui_version}"
+    modRuntimeOnly "maven.modrinth:satin-api:${rootProject.satin_version}"
+
+    common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
+    shadowCommon(project(path: ':common', configuration: 'transformProductionFabric')) { transitive = false }
+}
+
+shadowJar {
+    configurations = [project.configurations.shadowCommon]
+    archiveClassifier = 'dev-shadow'
+    exclude 'architectury.common.json'
+}
+
+remapJar {
+    inputFile.set shadowJar.archiveFile
+    dependsOn shadowJar
+}
+
+sourcesJar {
+    from project(':common').sourceSets.main.allSource
+}
+
+components.java.withVariantsFromConfiguration(configurations.shadowRuntimeElements) { skip() }
