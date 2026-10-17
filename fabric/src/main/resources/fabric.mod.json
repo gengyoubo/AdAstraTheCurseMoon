@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": ["${mod_authors}"],
+  "license": "${mod_license}",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["github.com.gengyoubo.adssc.fabric.AdAstraTheCurseMoonFabric"]
+  },
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}",
+    "java": ">=17",
+    "architectury": ">=${architectury_version}",
+    "ad_astra": ">=1.15.21 <1.16",
+    "shape-shifter-curse": ">=1.9.2"
+  }
+}

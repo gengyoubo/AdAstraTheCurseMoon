@@ -1,0 +1,57 @@
+apply plugin: 'com.github.johnrengelman.shadow'
+
+architectury {
+    platformSetupLoomIde()
+    forge()
+}
+
+loom {
+    runs {
+        client {
+            runDir '../run'
+        }
+        server {
+            runDir '../run'
+        }
+    }
+}
+
+configurations {
+    common
+    shadowCommon
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentForge.extendsFrom common
+}
+
+dependencies {
+    forge "net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}"
+    modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
+
+    modImplementation "curse.maven:ad-astra-635042:${rootProject.ad_astra_forge_file}"
+    modImplementation "curse.maven:shape-shifter-curse-forge-1683902:${rootProject.shape_shifter_curse_forge_file}"
+    modRuntimeOnly 'curse.maven:resourceful-lib-570073:5659871'
+    modRuntimeOnly 'curse.maven:resourceful-config-714059:6231176'
+    modRuntimeOnly 'curse.maven:geckolib-388172:8285794'
+    modRuntimeOnly 'curse.maven:botarium-704113:5486070'
+
+    common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
+    shadowCommon(project(path: ':common', configuration: 'transformProductionForge')) { transitive = false }
+}
+
+shadowJar {
+    configurations = [project.configurations.shadowCommon]
+    archiveClassifier = 'dev-shadow'
+    exclude 'architectury.common.json'
+}
+
+remapJar {
+    inputFile.set shadowJar.archiveFile
+    dependsOn shadowJar
+}
+
+sourcesJar {
+    from project(':common').sourceSets.main.allSource
+}
+
+components.java.withVariantsFromConfiguration(configurations.shadowRuntimeElements) { skip() }

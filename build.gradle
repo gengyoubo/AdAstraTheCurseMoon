@@ -1,104 +1,85 @@
 plugins {
-    id 'eclipse'
-    id 'idea'
-    id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
-    id 'org.spongepowered.mixin' version '0.7.+'
+    id 'base'
+    id 'architectury-plugin' version '3.4.164'
+    id 'dev.architectury.loom' version '1.10.455' apply false
+    id 'com.github.johnrengelman.shadow' version '8.1.1' apply false
 }
 
-version = mod_version
-group = mod_group_id
+architectury {
+    minecraft = minecraft_version
+}
 
-base {
-    archivesName = mod_id
+allprojects {
+    group = rootProject.mod_group_id
+    version = rootProject.mod_version
 }
-mixin {
-    add sourceSets.main, 'shape_shifter_curse.mixins.refmap.json'
-    config "shape_shifter_curse.mixins.json"
-}
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
-minecraft {
-    mappings channel: mapping_channel, version: mapping_version
-    copyIdeResources = true
-    runs {
-        configureEach {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            mods {
-                "${mod_id}" {
-                    source sourceSets.main
-                }
-            }
-        }
-        client {
-            property 'forge.enabledGameTestNamespaces', mod_id
-        }
-        server {
-            property 'forge.enabledGameTestNamespaces', mod_id
-            args '--nogui'
-        }
-    }
-}
-sourceSets.main.resources { srcDir 'src/generated/resources' }
-repositories {
-    maven {
-        url "https://cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
-    }
-}
-dependencies {
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    implementation fg.deobf("curse.maven:ad-astra-635042:8833730")
-    implementation fg.deobf("curse.maven:shape-shifter-curse-forge-1683902:9104450")
-    runtimeOnly fg.deobf("curse.maven:resourceful-lib-570073:5659871")
-    runtimeOnly fg.deobf("curse.maven:resourceful-config-714059:6231176")
-    runtimeOnly fg.deobf("curse.maven:geckolib-388172:8285794")
-    runtimeOnly fg.deobf("curse.maven:botarium-704113:5486070")
-}
-tasks.named('processResources', ProcessResources).configure {
-    var replaceProperties = [
-            minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
-            forge_version: forge_version, forge_version_range: forge_version_range,
-            loader_version_range: loader_version_range,
-            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-            mod_authors: mod_authors, mod_description: mod_description,
-    ]
-    inputs.properties replaceProperties
 
-    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
-        expand replaceProperties + [project: project]
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'architectury-plugin'
+    apply plugin: 'dev.architectury.loom'
+    apply plugin: 'maven-publish'
+
+    base {
+        archivesName = "${rootProject.mod_id}-${project.name}-${rootProject.minecraft_version}"
     }
-}
-tasks.named('jar', Jar).configure {
-    manifest {
-        attributes([
-                'Specification-Title'     : mod_id,
-                'Specification-Vendor'    : mod_authors,
-                'Specification-Version'   : '1', // We are version 1 of ourselves
-                'Implementation-Title'    : project.name,
-                'Implementation-Version'  : project.jar.archiveVersion,
-                'Implementation-Vendor'   : mod_authors,
-                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
-    }
-    finalizedBy 'reobfJar'
-}
-publishing {
-    publications {
-        register('mavenJava', MavenPublication) {
-            artifact jar
-        }
-    }
+
     repositories {
-        maven {
-            url "file://${project.projectDir}/mcmodsrepo"
+        mavenCentral()
+        maven { url = 'https://maven.architectury.dev/' }
+        maven { url = 'https://maven.teamresourceful.com/repository/maven-public/' }
+        exclusiveContent {
+            forRepository { maven { url = 'https://cursemaven.com' } }
+            filter { includeGroup 'curse.maven' }
+        }
+        exclusiveContent {
+            forRepository { maven { url = 'https://api.modrinth.com/maven' } }
+            filter { includeGroup 'maven.modrinth' }
+        }
+    }
+
+    loom {
+        silentMojangMappingsLicense()
+    }
+
+    dependencies {
+        minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+        mappings loom.officialMojangMappings()
+    }
+
+    java {
+        toolchain.languageVersion = JavaLanguageVersion.of(17)
+        withSourcesJar()
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+        options.release = 17
+    }
+
+    tasks.withType(ProcessResources).configureEach {
+        def properties = [
+            mod_id: rootProject.mod_id,
+            mod_name: rootProject.mod_name,
+            mod_version: rootProject.mod_version,
+            mod_license: rootProject.mod_license,
+            mod_authors: rootProject.mod_authors,
+            mod_description: rootProject.mod_description,
+            minecraft_version: rootProject.minecraft_version,
+            architectury_version: rootProject.architectury_version,
+            fabric_loader_version: rootProject.fabric_loader_version
+        ]
+        inputs.properties properties
+        filesMatching(['META-INF/mods.toml', 'fabric.mod.json', 'pack.mcmeta']) {
+            expand properties
         }
     }
 }
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+
+tasks.named('build') {
+    dependsOn ':forge:build', ':fabric:build'
+}
+
+tasks.named('clean') {
+    dependsOn subprojects.collect { "${it.path}:clean" }
 }
