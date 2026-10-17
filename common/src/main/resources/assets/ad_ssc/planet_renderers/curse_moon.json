@@ -1,0 +1,29 @@
+{
+  "dimension": "ad_ssc:curse_moon",
+  "custom_clouds": true,
+  "custom_sky": true,
+  "custom_weather": false,
+  "has_thick_fog": false,
+  "has_fog": true,
+  "sunrise_color": 9257151,
+  "stars": 13000,
+  "star_brightness": 0.6,
+  "sunrise_angle": 0,
+  "render_in_rain": true,
+  "star_colors": [
+    { "data": -1, "weight": 8 },
+    { "data": -3890945, "weight": 2 }
+  ],
+  "sky_renderables": [
+    {
+      "texture": "ad_astra:textures/environment/red_sun.png",
+      "scale": 9.0,
+      "global_rotation": [0.0, 0.0, 0.0],
+      "local_rotation": [0.0, 0.0, 0.0],
+      "movement_type": "TIME_OF_DAY",
+      "blend": false,
+      "back_light_color": -3890945,
+      "back_light_scale": 27.0
+    }
+  ]
+}

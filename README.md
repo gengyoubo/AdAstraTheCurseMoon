@@ -2,6 +2,16 @@
 
 Minecraft 1.20.1 的 Architectury API 项目，同时构建 Forge 和 Fabric 版本。
 
+## 诅咒之月
+
+在 Ad Astra 火箭的星球选择界面中，进入独立的“诅咒之月”目录，再选择“诅咒之月”并登陆。
+一级火箭即可往返；新星图显示红色恒星、紫色轨道和月球图标。
+地表维度为 `ad_ssc:curse_moon`，轨道维度为 `ad_ssc:curse_moon_orbit`。
+首版沿用 Ad Astra 的月球地形、生物群系、1.622 重力和无氧低温环境，需要航天服和氧气。
+星系归属、火箭等级和环境参数位于 `common/src/main/resources/data/ad_ssc/planets/`；
+地形入口位于同目录下的 `../dimension/`，天空定义位于 `assets/ad_ssc/planet_renderers/`。
+当前只接入星球旅行；诅咒机制尚未添加。已有世界需重启后加载新增维度。
+
 ## 代码结构
 
 - `common/`：共享逻辑和资源。`AdAstraTheCurseMoon.init()` 由两个平台入口调用。
@@ -47,6 +57,7 @@ Forge 配置 GeckoLib；Fabric 配置 Fabric API、Pehkui 和 Satin。
 Fabric 开发环境显式加载 Kanos Config 0.4.1，补齐 Pehkui 的内嵌前置；使用发布版 Pehkui 时该前置已包含在其 JAR 中。
 Pehkui 固定为 3.7.8+1.14.4-1.20.1，避免 1.21 工件在 Loom 的 1.20.1 开发映射下调用不存在的方法。
 Fabric 还显式加载幻形者诅咒内嵌的 Apoli 2.9.2（含其传递依赖）、AzureLib 3.0.19、Player Animator 1.0.2-rc1 和 Reach Entity Attributes 2.4.0，供 Loom 开发启动使用。
+这些幻形者诅咒前置使用 `modImplementation`，让 Loom 在重映射继承方法时能解析 Apoli/Calio 等父类，避免创建世界时出现 `AbstractMethodError`。
 Forge 显式加载并内嵌 MixinExtras 0.5.5，供 Ad Astra 的 `@WrapOperation` 等 Mixin 使用。
 Forge 的 Loom 开发环境还显式加载 ByteCodecs 1.0.2、YABN 1.0.3 和 JLayer 1.0.1，
 与 Ad Astra 上游的 `forgeRuntimeLibrary` 配置一致。

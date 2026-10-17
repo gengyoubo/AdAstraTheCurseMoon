@@ -1,4 +1,9 @@
 {
+  "solar_system.ad_ssc.curse_moon": "诅咒之月",
+  "planet.ad_ssc.curse_moon": "诅咒之月",
+  "planet.ad_ssc.curse_moon_orbit": "诅咒之月轨道",
+  "dimension.ad_ssc.curse_moon": "诅咒之月",
+  "dimension.ad_ssc.curse_moon_orbit": "诅咒之月轨道",
   "itemGroup.ad_ssc.main": "Ad Astra：诅咒之月",
   "item.ad_ssc.morphscale_netherite_space_helmet": "塑形下界合金航天头盔",
   "item.ad_ssc.morphscale_netherite_space_suit": "塑形下界合金航天服",

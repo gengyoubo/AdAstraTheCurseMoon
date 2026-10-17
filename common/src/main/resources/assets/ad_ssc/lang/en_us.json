@@ -1,4 +1,9 @@
 {
+  "solar_system.ad_ssc.curse_moon": "Curse Moon",
+  "planet.ad_ssc.curse_moon": "Curse Moon",
+  "planet.ad_ssc.curse_moon_orbit": "Curse Moon Orbit",
+  "dimension.ad_ssc.curse_moon": "Curse Moon",
+  "dimension.ad_ssc.curse_moon_orbit": "Curse Moon Orbit",
   "itemGroup.ad_ssc.main": "Ad Astra: The Curse Moon",
   "item.ad_ssc.morphscale_netherite_space_helmet": "Morph-Scale Netherite Space Helmet",
   "item.ad_ssc.morphscale_netherite_space_suit": "Morph-Scale Netherite Space Suit",

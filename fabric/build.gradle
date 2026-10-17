@@ -51,16 +51,17 @@ dependencies {
     modRuntimeOnly("com.github.Virtuoel:KanosConfig:${rootProject.kanos_config_version}") { transitive = false }
     modRuntimeOnly "maven.modrinth:satin-api:${rootProject.satin_version}"
 
-    // SSC bundles these in its release JAR; Loom needs them on the development classpath.
-    modRuntimeOnly("io.github.apace100:apoli:2.9.2+mc.1.20.x") {
+    // SSC extends Apoli/Calio classes. Loom needs this hierarchy on the compile
+    // classpath to remap inherited methods and synthetic bridges correctly.
+    modImplementation("io.github.apace100:apoli:2.9.2+mc.1.20.x") {
         exclude group: 'net.fabricmc'
         exclude group: 'net.fabricmc.fabric-api'
         exclude group: 'com.terraformersmc'
         exclude group: 'com.demonwav.mcdev'
     }
-    modRuntimeOnly 'maven.modrinth:azurelib:3KvekWCR' // Fabric 1.20.1, 3.0.19
-    modRuntimeOnly 'maven.modrinth:playeranimator:yDqYTUaf' // Fabric 1.20, 1.0.2-rc1
-    modRuntimeOnly 'com.jamieswhiteshirt:reach-entity-attributes:2.4.0'
+    modImplementation 'maven.modrinth:azurelib:3KvekWCR' // Fabric 1.20.1, 3.0.19
+    modImplementation 'maven.modrinth:playeranimator:yDqYTUaf' // Fabric 1.20, 1.0.2-rc1
+    modImplementation 'com.jamieswhiteshirt:reach-entity-attributes:2.4.0'
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowCommon(project(path: ':common', configuration: 'transformProductionFabric')) { transitive = false }
