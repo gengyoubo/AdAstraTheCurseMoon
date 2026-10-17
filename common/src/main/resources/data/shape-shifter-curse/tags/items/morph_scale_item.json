@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "ad_ssc:morphscale_netherite_space_helmet",
+    "ad_ssc:morphscale_netherite_space_suit",
+    "ad_ssc:morphscale_netherite_space_pants",
+    "ad_ssc:morphscale_netherite_space_boots",
+    "ad_ssc:morphscale_jet_suit_helmet",
+    "ad_ssc:morphscale_jet_suit",
+    "ad_ssc:morphscale_jet_suit_pants",
+    "ad_ssc:morphscale_jet_suit_boots"
+  ]
+}

@@ -28,12 +28,24 @@ dependencies {
     forge "net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}"
     modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
 
+    // Load before dependency mixins are applied, and bundle it for installed clients/servers.
+    implementation(include("io.github.llamalad7:mixinextras-forge:${rootProject.mixinextras_version}"))
     modImplementation "curse.maven:ad-astra-635042:${rootProject.ad_astra_forge_file}"
     modImplementation "curse.maven:shape-shifter-curse-forge-1683902:${rootProject.shape_shifter_curse_forge_file}"
     modRuntimeOnly 'curse.maven:resourceful-lib-570073:5659871'
     modRuntimeOnly 'curse.maven:resourceful-config-714059:6231176'
     modRuntimeOnly 'curse.maven:geckolib-388172:8285794'
     modRuntimeOnly 'curse.maven:botarium-704113:5486070'
+    modRuntimeOnly ("curse.maven:jei-238222:9205046")
+    modRuntimeOnly "curse.maven:mezzconfig-1689768:9048661"
+    // GeckoLib ships mclib as a jar-in-jar (com.eliotlash.mclib:mclib:20), which is not
+    // unpacked onto the classpath in the Loom dev environment, so add it explicitly.
+    forgeRuntimeLibrary 'com.eliotlash.mclib:mclib:20'
+
+    // Ad Astra's upstream Loom setup exposes these Java libraries to Forge's game classloader.
+    forgeRuntimeLibrary 'com.teamresourceful:bytecodecs:1.0.2'
+    forgeRuntimeLibrary 'com.teamresourceful:yabn:1.0.3'
+    forgeRuntimeLibrary 'javazoom:jlayer:1.0.1'
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowCommon(project(path: ':common', configuration: 'transformProductionForge')) { transitive = false }

@@ -44,6 +44,9 @@ Forge 开发环境继续使用根目录 `run/`，保留原有配置和存档；F
 
 两端还配置了 Ad Astra 的 Resourceful Lib、Resourceful Config 和 Botarium 前置。
 Forge 配置 GeckoLib；Fabric 配置 Fabric API、Pehkui 和 Satin。
+Forge 显式加载并内嵌 MixinExtras 0.5.5，供 Ad Astra 的 `@WrapOperation` 等 Mixin 使用。
+Forge 的 Loom 开发环境还显式加载 ByteCodecs 1.0.2、YABN 1.0.3 和 JLayer 1.0.1，
+与 Ad Astra 上游的 `forgeRuntimeLibrary` 配置一致。
 开发运行任务自动加载这些依赖；安装发布版时，需要另外安装对应加载器的依赖模组。
 
 幻形者诅咒的两端实现不是同一个 Java 包：

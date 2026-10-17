@@ -28,6 +28,7 @@ subprojects {
         mavenCentral()
         maven { url = 'https://maven.architectury.dev/' }
         maven { url = 'https://maven.teamresourceful.com/repository/maven-public/' }
+        maven { url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
         exclusiveContent {
             forRepository { maven { url = 'https://cursemaven.com' } }
             filter { includeGroup 'curse.maven' }
