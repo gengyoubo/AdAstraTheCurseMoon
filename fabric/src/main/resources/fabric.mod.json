@@ -11,6 +11,7 @@
     "main": ["github.com.gengyoubo.adssc.fabric.AdAstraTheCurseMoonFabric"],
     "client": ["github.com.gengyoubo.adssc.fabric.AdAstraTheCurseMoonFabricClient"]
   },
+  "mixins": ["ad_ssc.mixins.json"],
   "depends": {
     "fabricloader": ">=${fabric_loader_version}",
     "fabric-api": "*",

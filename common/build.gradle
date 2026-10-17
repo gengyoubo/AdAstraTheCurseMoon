@@ -2,6 +2,12 @@ architectury {
     common rootProject.enabled_platforms.split(',')
 }
 
+loom {
+    mixin {
+        defaultRefmapName = "ad_ssc-common-refmap.json"
+    }
+}
+
 dependencies {
     // Loader is used only for environment annotations in shared code.
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"

@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "github.com.gengyoubo.adssc.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "client.SpaceSuitModelMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "ad_ssc-common-refmap.json"
+}

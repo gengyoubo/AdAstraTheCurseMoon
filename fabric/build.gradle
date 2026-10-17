@@ -5,6 +5,29 @@ architectury {
     fabric()
 }
 
+repositories {
+    exclusiveContent {
+        forRepository { maven { url = 'https://jitpack.io' } }
+        filter { includeModule 'com.github.Virtuoel', 'KanosConfig' }
+    }
+    maven {
+        url = 'https://maven.ladysnake.org/releases'
+        content {
+            includeGroup 'io.github.apace100'
+            includeGroup 'io.github.ladysnake'
+            includeGroup 'dev.onyxstudios.cardinal-components-api'
+        }
+    }
+    maven {
+        url = 'https://maven.shedaniel.me'
+        content { includeGroupByRegex 'me\\.shedaniel.*' }
+    }
+    maven {
+        url = 'https://maven.jamieswhiteshirt.com/libs-release'
+        content { includeGroup 'com.jamieswhiteshirt' }
+    }
+}
+
 configurations {
     common
     shadowCommon
@@ -24,7 +47,20 @@ dependencies {
     modRuntimeOnly "com.teamresourceful.resourcefulconfig:resourcefulconfig-fabric-1.20.1:${rootProject.resourceful_config_version}"
     modRuntimeOnly "earth.terrarium.botarium:botarium-fabric-1.20.1:${rootProject.botarium_version}"
     modRuntimeOnly "maven.modrinth:pehkui:${rootProject.pehkui_version}"
+    // Loom's development classpath needs Pehkui's nested dependency explicitly.
+    modRuntimeOnly("com.github.Virtuoel:KanosConfig:${rootProject.kanos_config_version}") { transitive = false }
     modRuntimeOnly "maven.modrinth:satin-api:${rootProject.satin_version}"
+
+    // SSC bundles these in its release JAR; Loom needs them on the development classpath.
+    modRuntimeOnly("io.github.apace100:apoli:2.9.2+mc.1.20.x") {
+        exclude group: 'net.fabricmc'
+        exclude group: 'net.fabricmc.fabric-api'
+        exclude group: 'com.terraformersmc'
+        exclude group: 'com.demonwav.mcdev'
+    }
+    modRuntimeOnly 'maven.modrinth:azurelib:3KvekWCR' // Fabric 1.20.1, 3.0.19
+    modRuntimeOnly 'maven.modrinth:playeranimator:yDqYTUaf' // Fabric 1.20, 1.0.2-rc1
+    modRuntimeOnly 'com.jamieswhiteshirt:reach-entity-attributes:2.4.0'
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowCommon(project(path: ':common', configuration: 'transformProductionFabric')) { transitive = false }

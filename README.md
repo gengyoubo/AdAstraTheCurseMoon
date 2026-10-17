@@ -44,6 +44,9 @@ Forge 开发环境继续使用根目录 `run/`，保留原有配置和存档；F
 
 两端还配置了 Ad Astra 的 Resourceful Lib、Resourceful Config 和 Botarium 前置。
 Forge 配置 GeckoLib；Fabric 配置 Fabric API、Pehkui 和 Satin。
+Fabric 开发环境显式加载 Kanos Config 0.4.1，补齐 Pehkui 的内嵌前置；使用发布版 Pehkui 时该前置已包含在其 JAR 中。
+Pehkui 固定为 3.7.8+1.14.4-1.20.1，避免 1.21 工件在 Loom 的 1.20.1 开发映射下调用不存在的方法。
+Fabric 还显式加载幻形者诅咒内嵌的 Apoli 2.9.2（含其传递依赖）、AzureLib 3.0.19、Player Animator 1.0.2-rc1 和 Reach Entity Attributes 2.4.0，供 Loom 开发启动使用。
 Forge 显式加载并内嵌 MixinExtras 0.5.5，供 Ad Astra 的 `@WrapOperation` 等 Mixin 使用。
 Forge 的 Loom 开发环境还显式加载 ByteCodecs 1.0.2、YABN 1.0.3 和 JLayer 1.0.1，
 与 Ad Astra 上游的 `forgeRuntimeLibrary` 配置一致。

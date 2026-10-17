@@ -14,6 +14,9 @@ loom {
             runDir '../run'
         }
     }
+    forge {
+        mixinConfig "ad_ssc.mixins.json"
+    }
 }
 
 configurations {
@@ -31,7 +34,7 @@ dependencies {
     // Load before dependency mixins are applied, and bundle it for installed clients/servers.
     implementation(include("io.github.llamalad7:mixinextras-forge:${rootProject.mixinextras_version}"))
     modImplementation "curse.maven:ad-astra-635042:${rootProject.ad_astra_forge_file}"
-    modImplementation "curse.maven:shape-shifter-curse-forge-1683902:${rootProject.shape_shifter_curse_forge_file}"
+    modImplementation "curse.maven:shape-shifter-curse-forge-1683902:9224248"
     modRuntimeOnly 'curse.maven:resourceful-lib-570073:5659871'
     modRuntimeOnly 'curse.maven:resourceful-config-714059:6231176'
     modRuntimeOnly 'curse.maven:geckolib-388172:8285794'
