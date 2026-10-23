@@ -5,6 +5,8 @@ import dev.architectury.platform.Platform;
 import github.com.gengyoubo.adssc.compat.CurseMoonEnvironment;
 import github.com.gengyoubo.adssc.registry.ModCreativeTabs;
 import github.com.gengyoubo.adssc.registry.ModItems;
+import github.com.gengyoubo.adssc.registry.ModEffects;
+import github.com.gengyoubo.adssc.radiation.CurseMoonRadiation;
 import org.slf4j.Logger;
 
 public final class AdAstraTheCurseMoon {
@@ -18,6 +20,8 @@ public final class AdAstraTheCurseMoon {
         LOGGER.info("Initializing {} on {}", MOD_ID, Platform.isFabric() ? "Fabric" : "Forge");
         ModItems.register();
         ModCreativeTabs.register();
+        ModEffects.register();
         CurseMoonEnvironment.init();
+        CurseMoonRadiation.init();
     }
 }

@@ -1,0 +1,9 @@
+{
+  "dimension": "ad_ssc:curse_satellite_middle_orbit",
+  "gravity": 0.0,
+  "oxygen": false,
+  "solar_power": 32,
+  "solar_system": "ad_ssc:curse_moon",
+  "temperature": -270,
+  "tier": 2
+}

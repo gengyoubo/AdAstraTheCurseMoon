@@ -15,3 +15,13 @@ dependencies {
     // Ad Astra's shared API is identical on both loaders. Never package this dependency.
     modCompileOnly "curse.maven:ad-astra-635042:${rootProject.ad_astra_fabric_file}"
 }
+
+tasks.register('testRadiation', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'github.com.gengyoubo.adssc.radiation.RadiationExposureTest'
+}
+
+tasks.named('check') {
+    dependsOn testRadiation
+}

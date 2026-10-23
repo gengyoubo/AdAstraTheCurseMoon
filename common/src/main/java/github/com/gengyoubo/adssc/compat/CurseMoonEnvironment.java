@@ -17,8 +17,7 @@ public final class CurseMoonEnvironment {
     public static boolean isProtected(LivingEntity entity) {
         if (!(entity instanceof Player player)) return false;
         var dimension = player.level().dimension();
-        if (!ModDimensions.CURSE_MOON.equals(dimension)
-            && !ModDimensions.CURSE_MOON_ORBIT.equals(dimension)) return false;
+        if (!ModDimensions.isCurseMoonSystem(dimension)) return false;
         return SscCompat.isTransformed(player);
     }
 }

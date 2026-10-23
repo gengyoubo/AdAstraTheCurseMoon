@@ -1,0 +1,97 @@
+{
+  "dimension": "ad_ssc:curse_satellite_inner_orbit",
+  "custom_clouds": true,
+  "custom_sky": true,
+  "custom_weather": false,
+  "has_thick_fog": false,
+  "has_fog": false,
+  "sunrise_color": 9257151,
+  "stars": 13000,
+  "star_brightness": 0.6,
+  "sunrise_angle": 0,
+  "render_in_rain": true,
+  "star_colors": [
+    {
+      "data": -1,
+      "weight": 8
+    },
+    {
+      "data": -3890945,
+      "weight": 2
+    }
+  ],
+  "sky_renderables": [
+    {
+      "texture": "ad_astra:textures/environment/moon.png",
+      "scale": 80.0,
+      "global_rotation": [
+        180.0,
+        0.0,
+        0.0
+      ],
+      "local_rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "movement_type": "STATIC",
+      "blend": false,
+      "back_light_color": -3890945,
+      "back_light_scale": 240.0
+    },
+    {
+      "texture": "ad_astra:textures/environment/deimos.png",
+      "scale": 3.0,
+      "global_rotation": [
+        -55.0,
+        0.0,
+        120.0
+      ],
+      "local_rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "movement_type": "STATIC",
+      "blend": false,
+      "back_light_color": -3890945,
+      "back_light_scale": 9.0
+    },
+    {
+      "texture": "ad_astra:textures/environment/vicinus.png",
+      "scale": 6.0,
+      "global_rotation": [
+        30.0,
+        0.0,
+        -65.0
+      ],
+      "local_rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "movement_type": "STATIC",
+      "blend": false,
+      "back_light_color": -3890945,
+      "back_light_scale": 18.0
+    },
+    {
+      "texture": "ad_astra:textures/environment/phobos.png",
+      "scale": 40.0,
+      "global_rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "local_rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "movement_type": "STATIC",
+      "blend": false,
+      "back_light_color": -3890945,
+      "back_light_scale": 120.0
+    }
+  ]
+}

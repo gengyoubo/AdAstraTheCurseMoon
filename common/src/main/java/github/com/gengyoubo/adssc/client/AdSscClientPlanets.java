@@ -40,6 +40,7 @@ public final class AdSscClientPlanets {
             }
 
             float time = (Util.getMillis() % 360_000L) / 1000f;
+            // Inner (tier 3), middle (tier 2), outer (tier 1); the central moon requires tier 4.
             satellite(graphics, DimensionRenderingUtils.PHOBOS, width, height, 30, time * 12);
             satellite(graphics, DimensionRenderingUtils.DEIMOS, width, height, 60, time * -8 + 120);
             satellite(graphics, DimensionRenderingUtils.VICINUS, width, height, 90, time * 5 + 240);

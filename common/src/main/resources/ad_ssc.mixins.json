@@ -3,6 +3,9 @@
   "minVersion": "0.8",
   "package": "github.com.gengyoubo.adssc.mixin",
   "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "PlayerRadiationMixin"
+  ],
   "client": [
     "client.SpaceSuitModelMixin"
   ],
