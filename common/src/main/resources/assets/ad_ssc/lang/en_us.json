@@ -42,5 +42,12 @@
   "biome.ad_ssc.curse_satellite_outer_wastelands": "Outer Curse Satellite Wastelands",
   "biome.ad_ssc.curse_satellite_middle_wastelands": "Middle Curse Satellite Wastelands",
   "biome.ad_ssc.curse_satellite_inner_wastelands": "Inner Curse Satellite Wastelands",
-  "biome.ad_ssc.curse_moon_wastelands": "Curse Moon Wastelands"
+  "biome.ad_ssc.curse_moon_wastelands": "Curse Moon Wastelands",
+  "block.ad_ssc.moon_dust_generator": "Moon Dust Generator",
+  "container.ad_ssc.moon_dust_generator": "Moon Dust Generator",
+  "tooltip.ad_ssc.moon_dust_generator": "Burns Untreated Moondust into Moon Flux",
+  "tooltip.ad_ssc.moon_flux.rate": "Output: %s MF/t",
+  "tooltip.ad_ssc.moon_flux.amount": "Moon Flux: %s / %s MF",
+  "gui.ad_ssc.moon_flux.generating": "+%s MF/t",
+  "gui.ad_ssc.moon_flux.idle": "Idle"
 }

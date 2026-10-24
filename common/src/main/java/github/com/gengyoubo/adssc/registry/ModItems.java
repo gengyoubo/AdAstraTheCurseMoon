@@ -11,6 +11,7 @@ import github.com.gengyoubo.adssc.AdAstraTheCurseMoon;
 import github.com.gengyoubo.adssc.block.MoonDustOreItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.ArmorItem.Type;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;
 
@@ -53,6 +54,8 @@ public final class ModItems {
 
     public static final RegistrySupplier<Item> MOON_DUST_ORE = ITEMS.register(
         "moon_dust_ore", () -> new MoonDustOreItem(ModBlocks.MOON_DUST_ORE.get(), new Properties()));
+    public static final RegistrySupplier<Item> MOON_DUST_GENERATOR = ITEMS.register(
+        "moon_dust_generator", () -> new BlockItem(ModBlocks.MOON_DUST_GENERATOR.get(), new Properties()));
 
     private ModItems() {
     }

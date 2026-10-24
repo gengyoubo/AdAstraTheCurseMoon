@@ -42,5 +42,12 @@
   "biome.ad_ssc.curse_satellite_outer_wastelands": "诅咒卫星外侧荒原",
   "biome.ad_ssc.curse_satellite_middle_wastelands": "诅咒卫星中部荒原",
   "biome.ad_ssc.curse_satellite_inner_wastelands": "诅咒卫星内侧荒原",
-  "biome.ad_ssc.curse_moon_wastelands": "诅咒之月荒原"
+  "biome.ad_ssc.curse_moon_wastelands": "诅咒之月荒原",
+  "block.ad_ssc.moon_dust_generator": "月尘发电机",
+  "container.ad_ssc.moon_dust_generator": "月尘发电机",
+  "tooltip.ad_ssc.moon_dust_generator": "燃烧未加工的月之尘，产生月尘通量",
+  "tooltip.ad_ssc.moon_flux.rate": "产出：%s MF/t",
+  "tooltip.ad_ssc.moon_flux.amount": "月尘通量：%s / %s MF",
+  "gui.ad_ssc.moon_flux.generating": "+%s MF/t",
+  "gui.ad_ssc.moon_flux.idle": "待机"
 }

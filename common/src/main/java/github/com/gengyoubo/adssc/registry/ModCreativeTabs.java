@@ -27,6 +27,7 @@ public final class ModCreativeTabs {
                 output.accept(ModItems.MORPHSCALE_JET_SUIT_PANTS.get());
                 output.accept(ModItems.MORPHSCALE_JET_SUIT_BOOTS.get());
                 output.accept(ModItems.MOON_DUST_ORE.get());
+                output.accept(ModItems.MOON_DUST_GENERATOR.get());
             })));
 
     private ModCreativeTabs() {

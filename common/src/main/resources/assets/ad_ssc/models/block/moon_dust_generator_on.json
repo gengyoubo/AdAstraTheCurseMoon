@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "top": "ad_ssc:block/moon_dust_generator_top",
+    "bottom": "ad_ssc:block/moon_dust_generator_bottom",
+    "side": "ad_ssc:block/moon_dust_generator_side",
+    "front": "ad_ssc:block/moon_dust_generator_front_on"
+  }
+}

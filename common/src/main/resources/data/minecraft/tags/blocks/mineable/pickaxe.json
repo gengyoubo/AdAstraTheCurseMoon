@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "ad_ssc:moon_dust_ore"
+    "ad_ssc:moon_dust_ore",
+    "ad_ssc:moon_dust_generator"
   ]
 }
