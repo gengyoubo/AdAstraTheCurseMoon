@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "ad_ssc:curse_satellite_outer_wastelands",
+    "ad_ssc:curse_satellite_middle_wastelands",
+    "ad_ssc:curse_satellite_inner_wastelands",
+    "ad_ssc:curse_moon_wastelands"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "type": "ad_ssc:moon_dust_smelting",
+  "origin": 0,
+  "category": "misc",
+  "group": "untreated_moondust",
+  "ingredient": {
+    "item": "ad_ssc:moon_dust_ore"
+  },
+  "result": {
+    "item": "shape-shifter-curse:untreated_moondust",
+    "count": 1
+  },
+  "experience": 0.2,
+  "cookingtime": 200
+}

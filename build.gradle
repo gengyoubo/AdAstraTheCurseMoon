@@ -26,6 +26,10 @@ subprojects {
 
     repositories {
         mavenCentral()
+        maven {
+            url = 'https://maven.blamejared.com/'
+            content { includeGroup 'mezz.jei' }
+        }
         maven { url = 'https://maven.architectury.dev/' }
         maven { url = 'https://maven.teamresourceful.com/repository/maven-public/' }
         maven { url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
@@ -58,6 +62,19 @@ subprojects {
         options.release = 17
     }
 
+    // Shared development classes use named methods. Loading their intermediary refmap
+    // during a Forge dev run makes Mixin look for Fabric's class_1657 instead of Player.
+    // Only production jars need the refmap; remapJar converts it to the loader's namespace.
+    plugins.withId('com.github.johnrengelman.shadow') {
+        tasks.named('shadowJar') {
+            filesMatching('ad_ssc.mixins.json') {
+                filter { line ->
+                    line == '{' ? '{\n  "refmap": "ad_ssc-common-refmap.json",' : line
+                }
+            }
+        }
+    }
+
     tasks.withType(ProcessResources).configureEach {
         def properties = [
             mod_id: rootProject.mod_id,
@@ -83,4 +100,41 @@ tasks.named('build') {
 
 tasks.named('clean') {
     dependsOn subprojects.collect { "${it.path}:clean" }
+}
+
+tasks.register('verifyMixinPackaging') {
+    dependsOn ':forge:remapJar', ':fabric:remapJar'
+    inputs.file('common/src/main/resources/ad_ssc.mixins.json')
+    inputs.files(project(':forge').tasks.named('remapJar').flatMap { it.archiveFile },
+        project(':fabric').tasks.named('remapJar').flatMap { it.archiveFile })
+    doLast {
+        def parser = new groovy.json.JsonSlurper()
+        def devConfig = parser.parse(file('common/src/main/resources/ad_ssc.mixins.json'))
+        if (devConfig.containsKey('refmap')) {
+            throw new GradleException('Development mixin config must not reference the intermediary refmap')
+        }
+        ['forge', 'fabric'].each { platform ->
+            def artifact = project(":${platform}").tasks.named('remapJar').get().archiveFile.get().asFile
+            new java.util.zip.ZipFile(artifact).withCloseable { zip ->
+                def config = parser.parse(zip.getInputStream(zip.getEntry('ad_ssc.mixins.json')))
+                if (config.refmap != 'ad_ssc-common-refmap.json') {
+                    throw new GradleException("Missing production refmap in ${platform} jar")
+                }
+                def refmap = parser.parse(zip.getInputStream(zip.getEntry(config.refmap)))
+                def injections = refmap.mappings['github/com/gengyoubo/adssc/mixin/PlayerRadiationMixin']
+                ['addAdditionalSaveData', 'readAdditionalSaveData'].each { method ->
+                    def target = injections[method]
+                    def expected = platform == 'forge' ? 'Lnet/minecraft/world/entity/player/Player;m_' : 'Lnet/minecraft/class_1657;method_'
+                    if (!(target instanceof String) || !target.startsWith(expected)) {
+                        throw new GradleException("Wrong ${platform} namespace for ${method}: ${target}")
+                    }
+                }
+            }
+        }
+        logger.lifecycle('Mixin packaging verified: named development config, SRG Forge refmap, intermediary Fabric refmap')
+    }
+}
+
+tasks.named('check') {
+    dependsOn verifyMixinPackaging
 }

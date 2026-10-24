@@ -1,4 +1,10 @@
 {
+  "jei.ad_ssc.moon_dust_smelting": "Moon Dust Ore Smelting",
+  "jei.ad_ssc.smelting.time": "Time: %s s",
+  "jei.ad_ssc.smelting.experience": "Experience: %s",
+  "jei.ad_ssc.moon_dust_ore.info": "Moon Dust Ore generates on the three Curse Satellites and the Curse Moon. Silk Touch preserves its origin, including when moved or placed again. Smelting plain ore yields 1 Untreated Moondust; ore from the outer, middle and inner satellites and the Curse Moon yields 2, 3, 4 and 5 respectively. Check the smelting recipe for the matching origin.",
+  "jei.ad_ssc.morphscale_suit.info": "Morph-Scale space suits can be worn while transformed by SSC and retain the functions of their Ad Astra counterparts. Upgrade a suit with a Morphscale Core and Untreated Moondust at a smithing table. Morph-Scale Netherite Space Suits also have crafting upgrades to Morph-Scale Jet Suits.",
+  "tooltip.ad_ssc.moon_dust_ore.origin.0": "Plain ore (no recorded origin)",
   "effect.ad_ssc.curse_moon_radiation": "Curse Moon Radiation",
   "death.attack.curse_moon_radiation": "%1$s was consumed by Curse Moon radiation",
   "death.attack.curse_moon_radiation.player": "%1$s was consumed by Curse Moon radiation while fighting %2$s",
@@ -27,5 +33,14 @@
   "item.ad_ssc.morphscale_jet_suit_helmet": "Morph-Scale Jet Suit Helmet",
   "item.ad_ssc.morphscale_jet_suit": "Morph-Scale Jet Suit",
   "item.ad_ssc.morphscale_jet_suit_pants": "Morph-Scale Jet Suit Pants",
-  "item.ad_ssc.morphscale_jet_suit_boots": "Morph-Scale Jet Suit Boots"
+  "item.ad_ssc.morphscale_jet_suit_boots": "Morph-Scale Jet Suit Boots",
+  "block.ad_ssc.moon_dust_ore": "Moon Dust Ore",
+  "tooltip.ad_ssc.moon_dust_ore.origin.1": "Mined on the Outer Curse Satellite",
+  "tooltip.ad_ssc.moon_dust_ore.origin.2": "Mined on the Middle Curse Satellite",
+  "tooltip.ad_ssc.moon_dust_ore.origin.3": "Mined on the Inner Curse Satellite",
+  "tooltip.ad_ssc.moon_dust_ore.origin.4": "Mined on the Curse Moon",
+  "biome.ad_ssc.curse_satellite_outer_wastelands": "Outer Curse Satellite Wastelands",
+  "biome.ad_ssc.curse_satellite_middle_wastelands": "Middle Curse Satellite Wastelands",
+  "biome.ad_ssc.curse_satellite_inner_wastelands": "Inner Curse Satellite Wastelands",
+  "biome.ad_ssc.curse_moon_wastelands": "Curse Moon Wastelands"
 }

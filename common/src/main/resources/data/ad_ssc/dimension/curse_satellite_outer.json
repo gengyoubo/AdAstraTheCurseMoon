@@ -5,7 +5,7 @@
     "settings": "ad_astra:moon",
     "biome_source": {
       "type": "minecraft:fixed",
-      "biome": "ad_astra:lunar_wastelands"
+      "biome": "ad_ssc:curse_satellite_outer_wastelands"
     }
   }
 }

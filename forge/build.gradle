@@ -39,7 +39,7 @@ dependencies {
     modRuntimeOnly 'curse.maven:resourceful-config-714059:6231176'
     modRuntimeOnly 'curse.maven:geckolib-388172:8285794'
     modRuntimeOnly 'curse.maven:botarium-704113:5486070'
-    modRuntimeOnly ("curse.maven:jei-238222:9205046")
+    modRuntimeOnly "curse.maven:jei-238222:${rootProject.jei_forge_file}"
     modRuntimeOnly "curse.maven:mezzconfig-1689768:9048661"
     // GeckoLib ships mclib as a jar-in-jar (com.eliotlash.mclib:mclib:20), which is not
     // unpacked onto the classpath in the Loom dev environment, so add it explicitly.

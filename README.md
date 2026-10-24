@@ -38,6 +38,20 @@ Minecraft 1.20.1 的 Architectury API 项目，同时构建 Forge 和 Fabric 版
 Forge 使用 SSC 的1起始阶段编号，Fabric 将其0起始编号换算为1起始编号。辐射效果为 `ad_ssc:curse_moon_radiation`。
 `./gradlew :common:testRadiation` 可单独执行暴露、阶段、每秒伤害及恢复状态的行为测试；完整 `build` 也会运行。
 
+## JEI 兼容
+
+Forge 开发环境加载 JEI 15.71.0.224 及 MezzConfig，Fabric 开发环境加载 JEI 15.20.0.106，兼容现有 Fabric Loader 与 Fabric API。
+JEI 是可选客户端集成，发布包不内嵌 JEI；未安装 JEI 时，本模组的配方和服务端照常运行。
+安装 JEI 后，常规工作台和锻造台配方由 JEI 自动展示；塑形航天服另有用途说明。
+
+月尘矿使用独立的“月尘矿熔炼”分类，列出普通矿石及四个产地变体，并显示对应输入 NBT、输出数量、耗时和经验。
+配方直接读取当前世界同步的配方数据，数据包修改产量后也会正确展示。原版熔炼分类中忽略产地的重复条目会被隐藏。
+在物品列表中可以分别查看四个产地的矿石；熔炉界面支持将对应产地的矿石填入输入槽，燃料仍需自行放入。
+矿石的产地由 `BlockStateTag.origin` 判定，不受自定义名称等无关 NBT 影响。
+
+接入方式参照 [JEI 官方文档](https://github.com/mezz/JustEnoughItems/wiki/Getting-Started-%5BMinecraft-1.18.2-to-1.20.1%5D)，共享代码仅编译依赖 JEI API。
+`./gradlew :common:testMoonDustRecipes` 检查五种产地的熔炼读取、产量、输入匹配及网络同步；完整构建会自动执行。
+
 ## 代码结构
 
 - `common/`：共享逻辑和资源。`AdAstraTheCurseMoon.init()` 由两个平台入口调用。

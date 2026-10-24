@@ -1,0 +1,212 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "ad_ssc:moon_dust_ore",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:copy_state",
+                  "block": "ad_ssc:moon_dust_ore",
+                  "properties": [
+                    "origin"
+                  ],
+                  "conditions": [
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:block_state_property",
+                        "block": "ad_ssc:moon_dust_ore",
+                        "properties": {
+                          "origin": "0"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "shape-shifter-curse:untreated_moondust",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "ad_ssc:moon_dust_ore",
+                  "properties": {
+                    "origin": "0"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 4.0,
+                    "max": 9.0
+                  }
+                },
+                {
+                  "function": "minecraft:apply_bonus",
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:ore_drops"
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "shape-shifter-curse:untreated_moondust",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "ad_ssc:moon_dust_ore",
+                  "properties": {
+                    "origin": "1"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 5.0,
+                    "max": 11.0
+                  }
+                },
+                {
+                  "function": "minecraft:apply_bonus",
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:ore_drops"
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "shape-shifter-curse:untreated_moondust",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "ad_ssc:moon_dust_ore",
+                  "properties": {
+                    "origin": "2"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 6.0,
+                    "max": 13.0
+                  }
+                },
+                {
+                  "function": "minecraft:apply_bonus",
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:ore_drops"
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "shape-shifter-curse:untreated_moondust",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "ad_ssc:moon_dust_ore",
+                  "properties": {
+                    "origin": "3"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 8.0,
+                    "max": 16.0
+                  }
+                },
+                {
+                  "function": "minecraft:apply_bonus",
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:ore_drops"
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "shape-shifter-curse:untreated_moondust",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "ad_ssc:moon_dust_ore",
+                  "properties": {
+                    "origin": "4"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 10.0,
+                    "max": 20.0
+                  }
+                },
+                {
+                  "function": "minecraft:apply_bonus",
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:ore_drops"
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "random_sequence": "ad_ssc:blocks/moon_dust_ore"
+}

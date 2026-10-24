@@ -8,6 +8,7 @@ import earth.terrarium.adastra.common.items.armor.base.CustomDyeableArmorItem;
 import earth.terrarium.adastra.common.items.armor.materials.JetSuitMaterial;
 import earth.terrarium.adastra.common.items.armor.materials.NetheriteSpaceSuitMaterial;
 import github.com.gengyoubo.adssc.AdAstraTheCurseMoon;
+import github.com.gengyoubo.adssc.block.MoonDustOreItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.ArmorItem.Type;
 import net.minecraft.world.item.Item;
@@ -49,6 +50,9 @@ public final class ModItems {
     public static final RegistrySupplier<Item> MORPHSCALE_JET_SUIT_BOOTS = ITEMS.register(
         "morphscale_jet_suit_boots",
         () -> new CustomDyeableArmorItem(JetSuitMaterial.MATERIAL, Type.BOOTS, new Properties().fireResistant()));
+
+    public static final RegistrySupplier<Item> MOON_DUST_ORE = ITEMS.register(
+        "moon_dust_ore", () -> new MoonDustOreItem(ModBlocks.MOON_DUST_ORE.get(), new Properties()));
 
     private ModItems() {
     }

@@ -1,4 +1,10 @@
 {
+  "jei.ad_ssc.moon_dust_smelting": "月尘矿熔炼",
+  "jei.ad_ssc.smelting.time": "耗时：%s 秒",
+  "jei.ad_ssc.smelting.experience": "经验：%s",
+  "jei.ad_ssc.moon_dust_ore.info": "月尘矿生成于三个诅咒卫星和诅咒之月。精准采集的矿石会保留产地，搬运或重新放置不会改变熔炼产量。普通矿石熔炼产出1个未经处理的月尘；外侧、中部、内侧卫星及诅咒之月的矿石分别产出2、3、4、5个。请查看对应产地的熔炼配方。",
+  "jei.ad_ssc.morphscale_suit.info": "塑形航天服可供 SSC 变身后的玩家穿戴，并沿用 Ad Astra 对应航天服的功能。使用塑形核心和未经处理的月尘在锻造台升级；塑形下界合金航天服还可通过合成升级为塑形喷气式航天服。",
+  "tooltip.ad_ssc.moon_dust_ore.origin.0": "普通矿石（无产地记录）",
   "effect.ad_ssc.curse_moon_radiation": "诅咒之月辐射",
   "death.attack.curse_moon_radiation": "%1$s 被诅咒之月的辐射吞噬了",
   "death.attack.curse_moon_radiation.player": "%1$s 在与 %2$s 战斗时被诅咒之月的辐射吞噬了",
@@ -27,5 +33,14 @@
   "item.ad_ssc.morphscale_jet_suit_helmet": "塑形喷气式航天头盔",
   "item.ad_ssc.morphscale_jet_suit": "塑形喷气式航天服",
   "item.ad_ssc.morphscale_jet_suit_pants": "塑形喷气式航天裤",
-  "item.ad_ssc.morphscale_jet_suit_boots": "塑形喷气式航天靴"
+  "item.ad_ssc.morphscale_jet_suit_boots": "塑形喷气式航天靴",
+  "block.ad_ssc.moon_dust_ore": "月尘矿",
+  "tooltip.ad_ssc.moon_dust_ore.origin.1": "产自诅咒卫星外侧",
+  "tooltip.ad_ssc.moon_dust_ore.origin.2": "产自诅咒卫星中部",
+  "tooltip.ad_ssc.moon_dust_ore.origin.3": "产自诅咒卫星内侧",
+  "tooltip.ad_ssc.moon_dust_ore.origin.4": "产自诅咒之月",
+  "biome.ad_ssc.curse_satellite_outer_wastelands": "诅咒卫星外侧荒原",
+  "biome.ad_ssc.curse_satellite_middle_wastelands": "诅咒卫星中部荒原",
+  "biome.ad_ssc.curse_satellite_inner_wastelands": "诅咒卫星内侧荒原",
+  "biome.ad_ssc.curse_moon_wastelands": "诅咒之月荒原"
 }
