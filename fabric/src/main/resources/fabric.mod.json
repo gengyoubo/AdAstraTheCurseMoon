@@ -10,7 +10,8 @@
   "entrypoints": {
     "main": ["github.com.gengyoubo.adssc.fabric.AdAstraTheCurseMoonFabric"],
     "client": ["github.com.gengyoubo.adssc.fabric.AdAstraTheCurseMoonFabricClient"],
-    "jei_mod_plugin": ["github.com.gengyoubo.adssc.compat.jei.AdSscJeiPlugin"]
+    "jei_mod_plugin": ["github.com.gengyoubo.adssc.compat.jei.AdSscJeiPlugin"],
+    "jade": ["github.com.gengyoubo.adssc.compat.jade.AdSscJadePlugin"]
   },
   "mixins": ["ad_ssc.mixins.json"],
   "depends": {

@@ -41,6 +41,12 @@ dependencies {
     modRuntimeOnly 'curse.maven:botarium-704113:5486070'
     modRuntimeOnly "curse.maven:jei-238222:${rootProject.jei_forge_file}"
     modRuntimeOnly "curse.maven:mezzconfig-1689768:9048661"
+    // Jade's StringRenderOutputMixin shadows Font$StringRenderOutput.this$0 by name. Loom's Mojang
+    // mappings leave that synthetic field as field_24240, so Jade crashes in this dev runtime (production
+    // Forge is fine). Opt in with -PwithJade=true once the mappings name it this$0.
+    if (providers.gradleProperty('withJade').map { it.toBoolean() }.getOrElse(false)) {
+        modRuntimeOnly "maven.modrinth:jade:${rootProject.jade_forge_version}"
+    }
     // GeckoLib ships mclib as a jar-in-jar (com.eliotlash.mclib:mclib:20), which is not
     // unpacked onto the classpath in the Loom dev environment, so add it explicitly.
     forgeRuntimeLibrary 'com.eliotlash.mclib:mclib:20'

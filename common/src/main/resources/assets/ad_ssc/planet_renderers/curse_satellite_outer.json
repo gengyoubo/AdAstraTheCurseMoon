@@ -22,7 +22,7 @@
   ],
   "sky_renderables": [
     {
-      "texture": "ad_astra:textures/environment/moon.png",
+      "texture": "ad_ssc:textures/environment/curse_moon.png",
       "scale": 80.0,
       "global_rotation": [
         180.0,

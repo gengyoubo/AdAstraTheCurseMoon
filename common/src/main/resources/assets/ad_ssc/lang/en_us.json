@@ -49,5 +49,7 @@
   "tooltip.ad_ssc.moon_flux.rate": "Output: %s MF/t",
   "tooltip.ad_ssc.moon_flux.amount": "Moon Flux: %s / %s MF",
   "gui.ad_ssc.moon_flux.generating": "+%s MF/t",
-  "gui.ad_ssc.moon_flux.idle": "Idle"
+  "gui.ad_ssc.moon_flux.idle": "Idle",
+  "jade.ad_ssc.moon_flux": "%s / %s",
+  "config.jade.plugin_ad_ssc.moon_flux": "Moon Flux"
 }

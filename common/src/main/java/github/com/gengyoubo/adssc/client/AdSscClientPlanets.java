@@ -8,6 +8,7 @@ import com.mojang.math.Axis;
 import earth.terrarium.adastra.api.client.events.AdAstraClientEvents;
 import earth.terrarium.adastra.client.screens.PlanetsScreen;
 import earth.terrarium.adastra.client.utils.DimensionRenderingUtils;
+import github.com.gengyoubo.adssc.AdAstraTheCurseMoon;
 import github.com.gengyoubo.adssc.registry.ModDimensions;
 import net.minecraft.Util;
 import net.minecraft.client.gui.GuiGraphics;
@@ -16,6 +17,9 @@ import net.minecraft.resources.ResourceLocation;
 
 /** The shared renderer for the Curse Moon catalog's animated star chart. */
 public final class AdSscClientPlanets {
+    private static final ResourceLocation CURSE_MOON =
+        new ResourceLocation(AdAstraTheCurseMoon.MOD_ID, "textures/environment/curse_moon.png");
+
     private AdSscClientPlanets() {
     }
 
@@ -31,13 +35,7 @@ public final class AdSscClientPlanets {
             tessellator.end();
 
             // The Curse Moon is the center of this system; it does not orbit a sun.
-            try {
-                graphics.setColor(0.85f, 0.55f, 1.0f, 1.0f);
-                graphics.blit(DimensionRenderingUtils.MOON, width / 2 - 12, height / 2 - 12,
-                    0, 0, 24, 24, 24, 24);
-            } finally {
-                graphics.setColor(1, 1, 1, 1);
-            }
+            graphics.blit(CURSE_MOON, width / 2 - 12, height / 2 - 12, 0, 0, 24, 24, 24, 24);
 
             float time = (Util.getMillis() % 360_000L) / 1000f;
             // Inner (tier 3), middle (tier 2), outer (tier 1); the central moon requires tier 4.

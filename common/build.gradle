@@ -15,6 +15,7 @@ dependencies {
     // Ad Astra's shared API is identical on both loaders. Never package this dependency.
     modCompileOnly "curse.maven:ad-astra-635042:${rootProject.ad_astra_fabric_file}"
     modCompileOnly "mezz.jei:jei-${rootProject.minecraft_version}-common-api:${rootProject.jei_api_version}"
+    modCompileOnly "maven.modrinth:jade:${rootProject.jade_fabric_version}"
 }
 
 tasks.register('testRadiation', JavaExec) {

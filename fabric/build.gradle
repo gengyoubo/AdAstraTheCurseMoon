@@ -51,6 +51,7 @@ dependencies {
     modRuntimeOnly("com.github.Virtuoel:KanosConfig:${rootProject.kanos_config_version}") { transitive = false }
     modRuntimeOnly "maven.modrinth:satin-api:${rootProject.satin_version}"
     modRuntimeOnly "maven.modrinth:jei:${rootProject.jei_fabric_version}"
+    modRuntimeOnly "maven.modrinth:jade:${rootProject.jade_fabric_version}"
 
     // SSC extends Apoli/Calio classes. Loom needs this hierarchy on the compile
     // classpath to remap inherited methods and synthetic bridges correctly.
