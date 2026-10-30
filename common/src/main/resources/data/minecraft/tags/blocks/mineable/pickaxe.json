@@ -2,6 +2,9 @@
   "replace": false,
   "values": [
     "ad_ssc:moon_dust_ore",
-    "ad_ssc:moon_dust_generator"
+    "ad_ssc:moon_dust_generator",
+    "ad_ssc:item_pipe",
+    "ad_ssc:fluid_pipe",
+    "ad_ssc:energy_pipe"
   ]
 }

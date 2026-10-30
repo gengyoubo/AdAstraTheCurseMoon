@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "QGQ",
+    "MCM",
+    "QGQ"
+  ],
+  "key": {
+    "Q": {
+      "item": "minecraft:quartz"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "M": {
+      "item": "shape-shifter-curse:untreated_moondust"
+    },
+    "C": {
+      "item": "minecraft:hopper"
+    }
+  },
+  "result": {
+    "item": "ad_ssc:item_pipe",
+    "count": 8
+  }
+}

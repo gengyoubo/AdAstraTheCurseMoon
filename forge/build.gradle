@@ -38,7 +38,7 @@ dependencies {
     modRuntimeOnly 'curse.maven:resourceful-lib-570073:5659871'
     modRuntimeOnly 'curse.maven:resourceful-config-714059:6231176'
     modRuntimeOnly 'curse.maven:geckolib-388172:8285794'
-    modRuntimeOnly 'curse.maven:botarium-704113:5486070'
+    modImplementation 'curse.maven:botarium-704113:5486070'
     modRuntimeOnly "curse.maven:jei-238222:${rootProject.jei_forge_file}"
     modRuntimeOnly "curse.maven:mezzconfig-1689768:9048661"
     // Jade's StringRenderOutputMixin shadows Font$StringRenderOutput.this$0 by name. Loom's Mojang

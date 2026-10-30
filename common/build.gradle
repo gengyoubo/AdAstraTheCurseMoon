@@ -14,6 +14,8 @@ dependencies {
     modApi "dev.architectury:architectury:${rootProject.architectury_version}"
     // Ad Astra's shared API is identical on both loaders. Never package this dependency.
     modCompileOnly "curse.maven:ad-astra-635042:${rootProject.ad_astra_fabric_file}"
+    // Botarium (Ad Astra's own dependency) carries the pipes' fluids and energy on both loaders.
+    modCompileOnly "earth.terrarium.botarium:botarium-fabric-1.20.1:${rootProject.botarium_version}"
     modCompileOnly "mezz.jei:jei-${rootProject.minecraft_version}-common-api:${rootProject.jei_api_version}"
     modCompileOnly "maven.modrinth:jade:${rootProject.jade_fabric_version}"
 }
@@ -26,11 +28,25 @@ tasks.register('testRadiation', JavaExec) {
 
 tasks.named('check') {
     dependsOn testRadiation
+    dependsOn 'testCurseSky'
     dependsOn 'testMoonDustRecipes'
+    dependsOn 'testPipes'
 }
 
 tasks.register('testMoonDustRecipes', JavaExec) {
     dependsOn testClasses
     classpath = sourceSets.test.runtimeClasspath
     mainClass = 'github.com.gengyoubo.adssc.block.MoonDustSmeltingRecipeTest'
+}
+
+tasks.register('testPipes', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'github.com.gengyoubo.adssc.pipe.PipeTransferTest'
+}
+
+tasks.register('testCurseSky', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'github.com.gengyoubo.adssc.weather.CurseSkyTest'
 }

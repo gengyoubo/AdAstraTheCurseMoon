@@ -1,0 +1,41 @@
+{
+  "textures": {
+    "ring": "ad_ssc:block/pipe_ring_pull",
+    "particle": "ad_ssc:block/pipe_ring_pull"
+  },
+  "elements": [
+    {
+      "from": [
+        4,
+        4,
+        0
+      ],
+      "to": [
+        12,
+        12,
+        2
+      ],
+      "faces": {
+        "north": {
+          "texture": "#ring",
+          "cullface": "north"
+        },
+        "east": {
+          "texture": "#ring"
+        },
+        "south": {
+          "texture": "#ring"
+        },
+        "west": {
+          "texture": "#ring"
+        },
+        "up": {
+          "texture": "#ring"
+        },
+        "down": {
+          "texture": "#ring"
+        }
+      }
+    }
+  ]
+}

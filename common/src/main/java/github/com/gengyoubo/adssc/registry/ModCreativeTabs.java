@@ -28,6 +28,10 @@ public final class ModCreativeTabs {
                 output.accept(ModItems.MORPHSCALE_JET_SUIT_BOOTS.get());
                 output.accept(ModItems.MOON_DUST_ORE.get());
                 output.accept(ModItems.MOON_DUST_GENERATOR.get());
+                output.accept(ModItems.ITEM_PIPE.get());
+                output.accept(ModItems.FLUID_PIPE.get());
+                output.accept(ModItems.ENERGY_PIPE.get());
+                output.accept(ModItems.PIPE_CONFIGURATOR.get());
             })));
 
     private ModCreativeTabs() {

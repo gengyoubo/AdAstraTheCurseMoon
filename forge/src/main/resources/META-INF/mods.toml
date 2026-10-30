@@ -38,6 +38,13 @@ ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
+modId="botarium"
+mandatory=true
+versionRange="[2.3.4,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
 modId="shape_shifter_curse"
 mandatory=true
 versionRange="[1.9.3.10,)"

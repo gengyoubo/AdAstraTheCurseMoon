@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "ad_ssc:item/pipe_configurator"
+  }
+}

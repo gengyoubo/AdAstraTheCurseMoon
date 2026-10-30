@@ -45,7 +45,7 @@ dependencies {
     modImplementation "maven.modrinth:shape-shifter-curse:${rootProject.shape_shifter_curse_fabric_version}"
     modRuntimeOnly "com.teamresourceful.resourcefullib:resourcefullib-fabric-1.20.1:${rootProject.resourceful_lib_version}"
     modRuntimeOnly "com.teamresourceful.resourcefulconfig:resourcefulconfig-fabric-1.20.1:${rootProject.resourceful_config_version}"
-    modRuntimeOnly "earth.terrarium.botarium:botarium-fabric-1.20.1:${rootProject.botarium_version}"
+    modImplementation "earth.terrarium.botarium:botarium-fabric-1.20.1:${rootProject.botarium_version}"
     modRuntimeOnly "maven.modrinth:pehkui:${rootProject.pehkui_version}"
     // Loom's development classpath needs Pehkui's nested dependency explicitly.
     modRuntimeOnly("com.github.Virtuoel:KanosConfig:${rootProject.kanos_config_version}") { transitive = false }

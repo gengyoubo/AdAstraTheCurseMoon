@@ -42,6 +42,15 @@ public final class ModDimensions {
         return 0;
     }
 
+    /** The planet tier of a landable surface in the system; orbits and other dimensions are 0. */
+    public static int surfaceTier(ResourceKey<Level> dimension) {
+        if (CURSE_SATELLITE_OUTER.equals(dimension)) return 1;
+        if (CURSE_SATELLITE_MIDDLE.equals(dimension)) return 2;
+        if (CURSE_SATELLITE_INNER.equals(dimension)) return 3;
+        if (CURSE_MOON.equals(dimension)) return 4;
+        return 0;
+    }
+
     private static ResourceLocation id(String path) {
         return new ResourceLocation(AdAstraTheCurseMoon.MOD_ID, path);
     }

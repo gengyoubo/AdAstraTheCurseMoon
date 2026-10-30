@@ -24,6 +24,11 @@ public final class RadiationExposure {
         return !original.isEmpty();
     }
 
+    /** The stage before radiation advanced the form; 0 while inactive. */
+    public int originalStage() {
+        return stage;
+    }
+
     /** Returns the damage due this tick; changing radiation level never resets the second. */
     public int tick(int radiationLevel, Forms forms) {
         Form current = forms.current();

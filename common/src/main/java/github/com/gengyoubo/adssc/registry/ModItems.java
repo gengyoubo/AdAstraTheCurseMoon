@@ -9,6 +9,7 @@ import earth.terrarium.adastra.common.items.armor.materials.JetSuitMaterial;
 import earth.terrarium.adastra.common.items.armor.materials.NetheriteSpaceSuitMaterial;
 import github.com.gengyoubo.adssc.AdAstraTheCurseMoon;
 import github.com.gengyoubo.adssc.block.MoonDustOreItem;
+import github.com.gengyoubo.adssc.pipe.PipeConfiguratorItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.ArmorItem.Type;
 import net.minecraft.world.item.BlockItem;
@@ -56,6 +57,14 @@ public final class ModItems {
         "moon_dust_ore", () -> new MoonDustOreItem(ModBlocks.MOON_DUST_ORE.get(), new Properties()));
     public static final RegistrySupplier<Item> MOON_DUST_GENERATOR = ITEMS.register(
         "moon_dust_generator", () -> new BlockItem(ModBlocks.MOON_DUST_GENERATOR.get(), new Properties()));
+    public static final RegistrySupplier<Item> ITEM_PIPE = ITEMS.register(
+        "item_pipe", () -> new BlockItem(ModBlocks.ITEM_PIPE.get(), new Properties()));
+    public static final RegistrySupplier<Item> FLUID_PIPE = ITEMS.register(
+        "fluid_pipe", () -> new BlockItem(ModBlocks.FLUID_PIPE.get(), new Properties()));
+    public static final RegistrySupplier<Item> ENERGY_PIPE = ITEMS.register(
+        "energy_pipe", () -> new BlockItem(ModBlocks.ENERGY_PIPE.get(), new Properties()));
+    public static final RegistrySupplier<Item> PIPE_CONFIGURATOR = ITEMS.register(
+        "pipe_configurator", () -> new PipeConfiguratorItem(new Properties().stacksTo(1)));
 
     private ModItems() {
     }
